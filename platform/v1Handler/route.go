@@ -11,7 +11,10 @@ func RegisterInflowFnV1(api fiber.Router) {
 	api.Use(recoveryHandler())
 	api.Post("/:action/run",actionHandlers2) // run method of IAction
 	api.Get("/:action/load",getActionApplication) // get dialog form of action command
-	api.Get("/:action/help/:name",describeHandler) // doc based on Descibe arg on registerAction
+	api.Get("",describeHandler) // doc based on Descibe arg on registerAction
+	api.Get("/help/md/:name",helpMdHandler)
+	api.Get("/help/o/:name",helpObjHandler)
+
 }
 
 

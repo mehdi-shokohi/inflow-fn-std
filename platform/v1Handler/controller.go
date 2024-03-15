@@ -24,12 +24,9 @@ func actionHandlers2(c *fiber.Ctx) error {
 
 }
 func describeHandler(c *fiber.Ctx) error {
-	nameParam := c.Params("name")
-	if nameParam == "all" {
+
 		//return All Commands doc
 		return inflowV1.Send(c, fiber.StatusOK, inflowV1.GetActions())
-	}
-	return nil
 }
 
 func getActionApplication(c *fiber.Ctx) error {
@@ -42,3 +39,11 @@ func getActionApplication(c *fiber.Ctx) error {
 
 }
 
+
+func helpObjHandler(c *fiber.Ctx)error{
+	return nil
+}
+
+func helpMdHandler(c *fiber.Ctx)error{
+	return nil
+}
