@@ -32,5 +32,5 @@ func (a *PersistSettings) Settings(c *fiber.Ctx) error {
 	os.Setenv("MONGO_DB_URI",body.DataBaseUri)
 	os.Setenv("KEYDB_URI",body.KeyDbUri)
 
-	return nil
+	return c.JSON(body)
 }

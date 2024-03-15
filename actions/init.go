@@ -1,7 +1,7 @@
 package actions
 
 import (
-	standardActions "github.com/mehdi-shokohi/inflow-fn-std/actions/get"
+	standardActions "github.com/mehdi-shokohi/inflow-fn-std/actions/standard"
 	settingsHandler "github.com/mehdi-shokohi/inflow-fn-std/actions/settings"
 	"github.com/mehdi-shokohi/inflow-fn-std/platform/std"
 )

@@ -12,7 +12,8 @@ func (a *StandardFunc) Run(c *fiber.Ctx) error {
 	if err != nil {
 		return c.JSON(fiber.ErrBadRequest)
 	}
-
+	db:=std.GetDefaultDb(c.Context(),"std",body)
+	db.Insert()
 
 	return std.Send(c, fiber.StatusOK, body)
 }
