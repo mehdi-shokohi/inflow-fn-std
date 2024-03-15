@@ -11,7 +11,6 @@ type ProtocolBodyV1[T any] struct {
 
 type Describe[T any] struct {
 	Commands  []DescribeCommand `json:"commands"`
-	Arguments T                 `json:"args"`
 }
 type DescribeCommand struct {
 	Name   string `json:"name"`

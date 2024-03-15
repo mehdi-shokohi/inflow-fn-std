@@ -8,15 +8,13 @@ type ActionHolder struct{
 	Argument interface{}
 }
 var actions = map[string]ActionHolder{}
-func RegisterCommand2[T any](actionId string,action func(*fiber.Ctx)error,args T){
+
+func RegisterCommand[T any](actionId string,action func(*fiber.Ctx)error,args T){
 	if actions ==nil{
 		actions = make(map[string]ActionHolder)
 	}
 	actions[actionId] = ActionHolder{action,args}
 }
-
-
-
 
 func GetAction(key string)*ActionHolder{
 	if actions==nil{
@@ -28,13 +26,15 @@ func GetAction(key string)*ActionHolder{
 	}
 	return nil
 }
+
+
 func GetActions()[]string{
 	if actions==nil{
 		actions = make(map[string]ActionHolder)
 
 	}
 	actList:=make([]string,0)
-	for  k,_:=range actions{
+	for  k:=range actions{
 		actList = append(actList, k)
 	}
 	return actList

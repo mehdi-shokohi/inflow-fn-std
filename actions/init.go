@@ -6,10 +6,11 @@ import (
 )
 
 func init() {
-	inflowV1.RegisterCommand2("null", standardActions.RunNullCommand,standardActions.CastTo{})
-	inflowV1.RegisterCommand2("db_settings", standardActions.RunCastCommand,standardActions.CastTo{})
-	inflowV1.RegisterCommand2("isnull", standardActions.RunIsNullCommand,standardActions.CastTo{})
-	inflowV1.RegisterCommand2("isarray", standardActions.RunIsArrayCommand,standardActions.CastTo{})
+	// Commmand Name , Run Function , Arguments Data Model 
+	inflowV1.RegisterCommand("null", standardActions.RunNullCommand,standardActions.CastTo{})
+	inflowV1.RegisterCommand("db_settings", standardActions.RunCastCommand,standardActions.CastTo{})
+	inflowV1.RegisterCommand("isnull", standardActions.RunIsNullCommand,standardActions.CastTo{})
+	inflowV1.RegisterCommand("isarray", standardActions.RunIsArrayCommand,standardActions.CastTo{})
 
 }
 

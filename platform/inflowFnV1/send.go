@@ -10,16 +10,6 @@ const (
 	defaultPage    = 1
 	defaultPerPage = 5
 )
-// type Response struct {
-// 	Data  interface{} `json:"data"`
-// 	Error interface{} `json:"error"`
-// }
-
-// type Error struct {
-// 	Code    int         `json:"code"`
-// 	Message string      `json:"message"`
-// 	Data    interface{} `json:"data"`
-// }
 
 type ValidationError struct {
 	Field string
