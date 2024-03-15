@@ -1,4 +1,4 @@
-package std
+package inflowV1
 
 type ProtocolHeaderV1[T any] struct {
 	Headers T `json:"_headers" bson:"headers"`

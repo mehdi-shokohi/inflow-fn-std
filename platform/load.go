@@ -2,13 +2,13 @@ package platform
 
 import (
 	"github.com/gofiber/fiber/v2"
-	inflowV1 "github.com/mehdi-shokohi/inflow-fn-std/platform/inflowFnV1"
+	v1Handler "github.com/mehdi-shokohi/inflow-fn-std/platform/v1Handler"
 )
 
 func RegisterFunctions(api fiber.Router) {
 	apiGroup := api.Group("/fn")
 	apiGroup.Get("/protocol", inflowDiscoveryProtocol)
-	inflowV1.RegisterInflowFnV1(apiGroup)
+	v1Handler.RegisterInflowFnV1(apiGroup)
 }
 
 func inflowDiscoveryProtocol(c *fiber.Ctx) error {

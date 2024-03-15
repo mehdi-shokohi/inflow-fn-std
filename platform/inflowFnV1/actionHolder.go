@@ -1,4 +1,4 @@
-package std
+package inflowV1
 
 import "github.com/gofiber/fiber/v2"
 

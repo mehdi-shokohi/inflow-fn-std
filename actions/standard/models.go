@@ -5,3 +5,8 @@ type CastTo struct{
 	Key string `json:"field"`
 
 }
+
+type DBSettings struct{
+	URI string `json:"uri"`
+	User string `json:""`
+}

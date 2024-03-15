@@ -1,4 +1,4 @@
-package inflowV1
+package v1Handler
 
 import(
 
@@ -13,6 +13,8 @@ func RegisterInflowFnV1(api fiber.Router) {
 	api.Get("/:action/load",getActionApplication) // get dialog form of action command
 	api.Get("/:action/help/:name",describeHandler) // doc based on Descibe arg on registerAction
 }
+
+
 
 func recoveryHandler()func(c  *fiber.Ctx)error{
 	return func(c *fiber.Ctx) error {

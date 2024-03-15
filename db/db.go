@@ -1,4 +1,4 @@
-package std
+package db
 
 import (
 	"context"
@@ -10,7 +10,7 @@ import (
 func GetDefaultDb[T any](ctx context.Context, colName string, model T) mongoHelper.MongoContainer[T] {
 	dbId := "dafault"
 	uri := conf.Get_env_value("MONGO_DB_URI")
-	inflowDatabase := "ifeng_ext"
+	inflowDatabase := conf.Get_env_value("DB")
 	db := mongoHelper.NewMongoById[T](ctx, dbId, uri, inflowDatabase, colName, model)
 	return db
 }
