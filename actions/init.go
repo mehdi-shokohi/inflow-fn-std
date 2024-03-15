@@ -2,17 +2,14 @@ package actions
 
 import (
 	standardActions "github.com/mehdi-shokohi/inflow-fn-std/actions/standard"
-	settingsHandler "github.com/mehdi-shokohi/inflow-fn-std/actions/settings"
 	"github.com/mehdi-shokohi/inflow-fn-std/platform/std"
 )
 
 func init() {
-	std.RegisterCommand("null", &standardActions.StandardFunc{}, std.Describe{})
-	std.RegisterCommand("cast", &standardActions.StandardFunc{}, std.Describe{})
-	std.RegisterCommand("settings", &settingsHandler.PersistSettings{}, std.Describe{})
-	std.RegisterCommand("isnull", &standardActions.StandardFunc{}, std.Describe{})
-	std.RegisterCommand("isarray", &standardActions.StandardFunc{}, std.Describe{})
-	std.RegisterCommand("timer", &standardActions.StandardFunc{}, std.Describe{})
-
+	std.RegisterCommand2("null", standardActions.RunNullCommand,standardActions.CastTo{})
+	std.RegisterCommand2("global_settings", standardActions.RunCastCommand,standardActions.CastTo{})
+	std.RegisterCommand2("isnull", standardActions.RunIsNullCommand,standardActions.CastTo{})
+	std.RegisterCommand2("isarray", standardActions.RunIsArrayCommand,standardActions.CastTo{})
 
 }
+

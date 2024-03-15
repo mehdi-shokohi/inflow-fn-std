@@ -14,7 +14,15 @@ func actionHandlers(c *fiber.Ctx) error {
 	return fn.Run(c)
 
 }
+func actionHandlers2(c *fiber.Ctx) error {
+	action := c.Params("action")
+	fn := std.GetAction(action)
+	if fn == nil {
+		return std.Send(c, fiber.StatusNotFound, nil)
+	}
+	return fn.Run(c)
 
+}
 func describeHandler(c *fiber.Ctx) error {
 	nameParam := c.Params("name")
 	if nameParam == "all" {
@@ -30,14 +38,7 @@ func getActionApplication(c *fiber.Ctx) error {
 	if fn == nil {
 		return std.Send(c, fiber.StatusNotFound, nil)
 	}
-	return fn.Arguments(c)
+	return std.Send(c, fiber.StatusNotFound, fn.Argument)
+
 }
 
-func settingsHandler(c *fiber.Ctx) error {
-	action := c.Params("action")
-	fn := std.GetAction(action)
-	if fn == nil {
-		return std.Send(c, fiber.StatusNotFound, nil)
-	}
-	return fn.Settings(c)
-}

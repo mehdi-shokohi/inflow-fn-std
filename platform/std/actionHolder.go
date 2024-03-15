@@ -1,36 +1,36 @@
 package std
 
-import (
-
-)
+import "github.com/gofiber/fiber/v2"
 
 
-var actions map[string]IAction
-
-
-func RegisterCommand(actionId string,action IAction,defineHelp Describe){
-	if actions==nil{
-		actions = make(map[string]IAction)
+type ActionHolder struct{
+	Run func(*fiber.Ctx)error
+	Argument interface{}
+}
+var actions = map[string]ActionHolder{}
+func RegisterCommand2[T any](actionId string,action func(*fiber.Ctx)error,args T){
+	if actions ==nil{
+		actions = make(map[string]ActionHolder)
 	}
-	// validate action name
-	//save help on file
-	actions[actionId]=action
-
+	actions[actionId] = ActionHolder{action,args}
 }
 
-func GetAction(key string)IAction{
+
+
+
+func GetAction(key string)*ActionHolder{
 	if actions==nil{
-		actions = make(map[string]IAction)
+		actions = make(map[string]ActionHolder)
 
 	}
 	if f,ok:= actions[key];ok{
-		return f
+		return &f
 	}
 	return nil
 }
 func GetActions()[]string{
 	if actions==nil{
-		actions = make(map[string]IAction)
+		actions = make(map[string]ActionHolder)
 
 	}
 	actList:=make([]string,0)

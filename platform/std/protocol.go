@@ -7,7 +7,7 @@ import (
 )
 type IAction interface{
 	Run(*fiber.Ctx)(error)
-	Arguments(*fiber.Ctx)(error)
+	// Arguments(*fiber.Ctx)(error)
 	Settings(*fiber.Ctx)(error)
 }
 
@@ -17,13 +17,13 @@ type IAction interface{
 //access to db 
 //find db by name 
 //restart policy on doc
-func GetBodyAs[T any](ctx *fiber.Ctx)(*T,error){
+func GetBodyAs[T any](ctx *fiber.Ctx)(*ProtocolBodyV1[T],error){
 	inputForm := ProtocolBodyV1[T]{}
 	if err := ctx.BodyParser(&inputForm); err != nil {
 		return nil,err
 	}
 
-	return &inputForm.Body,nil
+	return &inputForm,nil
 }
 
 func GetHeadersAs[T any](ctx *fiber.Ctx)(*T,error){

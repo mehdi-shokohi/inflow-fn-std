@@ -5,11 +5,13 @@ type ProtocolHeaderV1[T any] struct {
 }
 
 type ProtocolBodyV1[T any] struct {
-	Body T `json:"_data" bson:"data"`
+	InlineParams map[string]interface{} `json:"_params"`
+	Body         T                      `json:"_data" bson:"data"`
 }
 
-type Describe struct {
-	Commands []DescribeCommand `json:"commands"`
+type Describe[T any] struct {
+	Commands  []DescribeCommand `json:"commands"`
+	Arguments T                 `json:"args"`
 }
 type DescribeCommand struct {
 	Name   string `json:"name"`
