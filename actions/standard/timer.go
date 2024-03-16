@@ -5,11 +5,7 @@ import (
 	"github.com/mehdi-shokohi/inflow-fn-std/platform/inflowFnV1"
 )
 
-type Scheduler struct{
-	Period uint `json:"period"`
-	Url string
-	AccessKey string 
-}
+
 func RunTimerCommand(c *fiber.Ctx) error {
 	body, err := inflowV1.GetBodyAs[map[string]interface{}](c)
 	if err != nil {
