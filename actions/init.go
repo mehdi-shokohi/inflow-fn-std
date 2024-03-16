@@ -8,6 +8,9 @@ import (
 func init() {
 	// Commmand Name , Run Function , Arguments Data Model 
 	inflowV1.RegisterCommand("null", standardActions.RunNullCommand,standardActions.CastTo{})
+	inflowV1.RegisterCommand("delete", standardActions.RunDeleteCommand,standardActions.CastTo{})
+	inflowV1.RegisterCommand("cast", standardActions.RunCastCommand,standardActions.CastTo{})
+
 	inflowV1.RegisterCommand("db_settings", standardActions.RunCastCommand,standardActions.CastTo{})
 	inflowV1.RegisterCommand("isnull", standardActions.RunIsNullCommand,standardActions.CastTo{})
 	inflowV1.RegisterCommand("isarray", standardActions.RunIsArrayCommand,standardActions.CastTo{})

@@ -12,6 +12,10 @@ func RunDeleteCommand(c *fiber.Ctx) error {
 		return c.JSON(fiber.ErrBadRequest)
 	}
 
+	for _,v:=range body.InlineParams["delete_key"].([]interface{}){
+
+		delete(body.Body,v.(string))
+	}
 	return inflowV1.Send(c, fiber.StatusOK, body.Body)
 }
 

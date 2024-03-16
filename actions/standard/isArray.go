@@ -3,7 +3,6 @@ package standardActions
 import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/mehdi-shokohi/inflow-fn-std/platform/inflowFnV1"
-	"github.com/mehdi-shokohi/inflow-fn-std/db"
 
 )
 
@@ -13,8 +12,11 @@ func RunIsArrayCommand(c *fiber.Ctx) error {
 	if err != nil {
 		return c.JSON(fiber.ErrBadRequest)
 	}
-	db:=db.GetDefaultDb(c.Context(),"std",body)
-	db.Insert()
+	res:=map[string]interface{}{"key":body.InlineParams["key"].(string),"isArray":false}
+	if _,ok:=body.Body[body.InlineParams["key"].(string)].([]interface{});ok{
+		res["isArray"]=true
 
-	return inflowV1.Send(c, fiber.StatusOK, body)
+	}
+
+	return inflowV1.Send(c, fiber.StatusOK, res)
 }
