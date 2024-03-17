@@ -35,7 +35,7 @@ func getActionApplication(c *fiber.Ctx) error {
 	if fn == nil {
 		return inflowV1.Send(c, fiber.StatusNotFound, nil)
 	}
-	return inflowV1.Send(c, fiber.StatusNotFound, fn.Argument)
+	return inflowV1.Send(c, fiber.StatusOK, fn.Argument)
 
 }
 
