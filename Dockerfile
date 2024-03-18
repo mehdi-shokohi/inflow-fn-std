@@ -12,6 +12,6 @@ RUN go build -o /build/app
 WORKDIR /build
 
 RUN rm -rf /project
-
+EXPOSE 80
 CMD [ "./app" ]
 

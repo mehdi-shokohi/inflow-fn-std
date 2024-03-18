@@ -21,21 +21,21 @@ type DeleteKeys struct {
 type IsNull struct {
 	Request struct {
 		Key string `json:"key"`
-	}
+	}`intent:"req"`
 	Response struct {
 		Key    string `json:"key"`
 		IsNull bool   `json:"isNull"`
-	}
+	}`intent:"res"`
 }
 
 type IsArray struct {
 	Request struct {
 		Key string `json:"key"`
-	}
+	} `intent:"req"`
 	Response struct {
 		Key     string `json:"key"`
 		IsArray bool   `json:"isArray"`
-	}
+	}`intent:"res"`
 }
 
 type Scheduler struct {
