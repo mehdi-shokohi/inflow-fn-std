@@ -7,6 +7,7 @@ import (
 
 
 func RunDeleteCommand(c *fiber.Ctx) error {
+
 	body, err := inflowV1.GetBodyAs[map[string]interface{}](c)
 	if err != nil {
 		return c.JSON(fiber.ErrBadRequest)
