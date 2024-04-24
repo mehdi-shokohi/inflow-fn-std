@@ -19,11 +19,19 @@ func HttpRequest(c *fiber.Ctx) error {
 	if err != nil {
 		return c.JSON(fiber.ErrBadRequest)
 	}
-	b, err := json.Marshal(body.InlineParams["with_body"])
-	if err != nil {
-		panic(err)
+	bodyByte,_:= json.Marshal(body.Body)
+	
+	if v,ok:=body.InlineParams["with_body"];ok{
+		if v!=nil{
+			bodyByte, err = json.Marshal(body.InlineParams["with_body"])
+			if err != nil {
+				panic(err)
+			}
+	
+		}
 	}
-	response, err := Request(strings.ToUpper(body.InlineParams["method"].(string)), body.InlineParams["call_url"].(string), b, c.GetReqHeaders())
+
+	response, err := Request(strings.ToUpper(body.InlineParams["method"].(string)), body.InlineParams["call_url"].(string), bodyByte, c.GetReqHeaders())
 	if err != nil || response == nil {
 		panic(err)
 	}
