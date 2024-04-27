@@ -38,14 +38,19 @@ type IsArray struct {
 	} `intent:"res"`
 }
 
-type Scheduler struct {
-	Period    uint   `json:"period"`
+type PolicyCron struct {
+	Minutes uint `json:"period"`
+	Url Url `json:"url"`
+	DocId string `json:"docId"`
+	PolicyId string `json:"policyId"`
+}
+type Url struct {
 	Url       string `json:"url"`
 	AccessKey string `json:"access_key"`
+	Token     string `json:"token"`
 }
-
 type HTTPRequest struct {
-	URL    string `json:"call_url"`
+	URL    string      `json:"call_url"`
 	Body   interface{} `json:"with_body"`
-	Method string `json:"method"`
+	Method string      `json:"method"`
 }

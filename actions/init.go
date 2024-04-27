@@ -12,6 +12,6 @@ func init() {
 	inflowV1.RegisterCommand("cast", standardActions.RunCastCommand, standardActions.CastTo{CastTo: "int|string", Keys: []string{"k1", "k2"}})
 	inflowV1.RegisterCommand("isnull", standardActions.RunIsNullCommand, standardActions.IsNull{})
 	inflowV1.RegisterCommand("isarray", standardActions.RunIsArrayCommand, standardActions.IsArray{})
-	inflowV1.RegisterCommand("timer", standardActions.RunTimerCommand, standardActions.Scheduler{})
+	inflowV1.RegisterCommand("policy_run_cron", standardActions.RunPolicyCron, standardActions.PolicyCron{})
 	inflowV1.RegisterCommand("http_request", standardActions.HttpRequest, standardActions.HTTPRequest{URL: "http://root:matepass@localhost:8529/_api/cursor",Method: "POST",Body: map[string]interface{}{"query" : "FOR p IN items filter p.terminologyId in ['ICPC2P','CPT'] limit 12000,1000 RETURN p "	}})
 }
