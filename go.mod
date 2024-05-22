@@ -4,6 +4,7 @@ go 1.21.1
 
 require (
 	github.com/bytedance/sonic v1.11.2
+	github.com/go-co-op/gocron v1.37.0
 	github.com/gofiber/fiber/v2 v2.51.0
 	github.com/joho/godotenv v1.5.1
 	github.com/mehdi-shokohi/mongoHelper v1.0.1
@@ -13,7 +14,6 @@ require (
 	github.com/andybalholm/brotli v1.0.5 // indirect
 	github.com/chenzhuoyu/base64x v0.0.0-20230717121745-296ad89f973d // indirect
 	github.com/chenzhuoyu/iasm v0.9.0 // indirect
-	github.com/go-co-op/gocron v1.37.0 // indirect
 	github.com/golang/snappy v0.0.1 // indirect
 	github.com/google/uuid v1.4.0 // indirect
 	github.com/klauspost/compress v1.16.7 // indirect
